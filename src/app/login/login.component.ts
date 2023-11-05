@@ -25,25 +25,27 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     console.log("OnSUUUBMIT");
     const userName = this.checkoutForm.get('userName')?.value;
+    //quui parte la get di questo component
     this.dataService.getUser(userName).subscribe(
       (userData) => {
         console.log('Dati utente:', userData);
+        console.log('userName: ', <string>userData.name, 'password: ', userData.password)
       },
       (error) => {
         console.error('Errore durante la richiesta:', error);
       }
     );
 
-    const password = this.checkoutForm.get('password')?.value;
+    // const password = this.checkoutForm.get('password')?.value;
 
-    this.dataService.getUser(userName).subscribe(
-      (userData) => {
-        console.log('Dati utente:', userData);
-      },
-      (error) => {
-        console.error('Errore durante la richiesta:', error);
-      }
-    );
+    // this.dataService.getUser(password).subscribe(
+    //   (userData) => {
+    //     console.log('Dati utente:', userData);
+    //   },
+    //   (error) => {
+    //     console.error('Errore durante la richiesta:', error);
+    //   }
+    // );
 
   }
 

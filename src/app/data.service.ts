@@ -15,7 +15,7 @@ export class DataService {
   }
 
   getUser(userName: string): Observable<any> {
-    console.log(this.http.get(`${this.baseUrl}/user/${userName}`).subscribe(this.data));
+    console.log(this.http.get(`${this.baseUrl}/user/${userName}`));
     return this.http.get(`${this.baseUrl}/user/${userName}`)
   }
 
