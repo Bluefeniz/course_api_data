@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit{
   onSubmit() {
     console.log("OnSUUUBMIT");
     const userName = this.checkoutForm.get('userName')?.value;
+    console.log("FORM USERNAME: " +  userName);
     //quui parte la get di questo component
     this.dataService.getUser(userName).subscribe(
       (userData) => {
@@ -36,7 +37,8 @@ export class LoginComponent implements OnInit{
       }
     );
 
-    // const password = this.checkoutForm.get('password')?.value;
+    const password = this.checkoutForm.get('password')?.value;
+    console.log("FORM PASSWORD: " +  password);
 
     // this.dataService.getUser(password).subscribe(
     //   (userData) => {
