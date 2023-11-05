@@ -1,0 +1,22 @@
+<p>login works!</p>
+<button routerLink='/home'> Vai alla Pagina di Destinazione </button>
+<div class="loginAuthentication" ngClass="loginAuthentication">
+    <!--<form formGroup="checkoutForm" (ngSubmit)="onSubmit() "-->  
+    <form (formGroup)="checkoutForm" (ngSubmit)="onSubmit()" name="checkoutForm" id="checkoutForm">
+        <div>
+            <label for="username">
+                username
+            </label>
+            <input id="username" type="text" formControlName="userName">
+        </div>
+        
+        <div>
+            <label for="password">
+                Password
+            </label>
+            <input id="password" type="password" formControlName="password">
+        </div>
+        
+        <button class="button" type="submit">Entra</button>
+    </form>
+</div>
