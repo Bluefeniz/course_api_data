@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
+import { Observable, Observer, Subscription } from 'rxjs';
 
 
 
@@ -7,16 +8,16 @@ import { HttpClient, provideHttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataService {
-  HttpClient: any;
   baseUrl = "http://localhost:8095"
   data: any;
 
-  constructor(private http: HttpClient) {}
-
-  getUser() {
-    return this.http.get(this.baseUrl+"/user").subscribe(data=>{
-      console.log(data)
-      });
+  constructor(private http: HttpClient) {
   }
+
+  getUser(userName: string): Observable<any> {
+    console.log(this.http.get(`${this.baseUrl}/user/${userName}`).subscribe(this.data));
+    return this.http.get(`${this.baseUrl}/user/${userName}`)
+  }
+
 
 }

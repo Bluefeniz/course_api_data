@@ -2,7 +2,7 @@
 <button routerLink='/home'> Vai alla Pagina di Destinazione </button>
 <div class="loginAuthentication" ngClass="loginAuthentication">
     <!--<form formGroup="checkoutForm" (ngSubmit)="onSubmit() "-->  
-    <form (formGroup)="checkoutForm" (ngSubmit)="onSubmit()" name="checkoutForm" id="checkoutForm">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" name="checkoutForm" id="checkoutForm">
         <div>
             <label for="username">
                 username
@@ -20,3 +20,5 @@
         <button class="button" type="submit">Entra</button>
     </form>
 </div>
+
+

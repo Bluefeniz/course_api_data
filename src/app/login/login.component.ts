@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +11,9 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 })
 export class LoginComponent implements OnInit{
 
-  checkoutForm: FormGroup | any;
+  checkoutForm: FormGroup;
+
+  data = this.dataService.getUser("");
 
   constructor(private dataService: DataService, private formBuilder: FormBuilder) {
     this.checkoutForm = this.formBuilder.group({
@@ -21,26 +22,41 @@ export class LoginComponent implements OnInit{
     });
   }
 
-  
-
-  
-
   onSubmit() {
-    const userName = this.checkoutForm.get('userName').value;
-    const password = this.checkoutForm.get('password').value;
-    console.log("UserName as: " + userName + " Password: " + password); // Stampa il valore inserito dall'utente
+    console.log("OnSUUUBMIT");
+    const userName = this.checkoutForm.get('userName')?.value;
+    this.dataService.getUser(userName).subscribe(
+      (userData) => {
+        console.log('Dati utente:', userData);
+      },
+      (error) => {
+        console.error('Errore durante la richiesta:', error);
+      }
+    );
+
+    const password = this.checkoutForm.get('password')?.value;
+
+    this.dataService.getUser(userName).subscribe(
+      (userData) => {
+        console.log('Dati utente:', userData);
+      },
+      (error) => {
+        console.error('Errore durante la richiesta:', error);
+      }
+    );
+
   }
+
+  //   const myLoginObservable = new Observable(observer => {
+  //     observer.next(userName);
+  //     observer.next(password);
+  //     observer.complete();
+  //   });
+  //   return myLoginObservable;
+  //  };
   
   ngOnInit(): void {
-    LoginComponent.constructor(this.formBuilder)
-    console.log("loginOnInit")
-    this.dataService.getUser()
-    this.checkoutForm = this.formBuilder.group({
-      userName: '',
-      password: ''
-    });
+    console.log("loginOnInit");
   }
-
- 
-
-}
+      // Qui puoi gestire i dati ricevuti
+}  
