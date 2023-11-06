@@ -1,6 +1,16 @@
-div{
+div {
     margin: top;
     display: flex;
+}
+
+.loginAuthentication{
+    height: auto;
+    margin-top: 10px;
+    margin-bottom: auto;
+    margin-left: 10px;
+    margin-right: auto;
+    text-align: right;
+    color: red;
 }
 
 

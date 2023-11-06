@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './data.service';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -22,7 +23,8 @@ import { DataService } from './data.service';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
 
   ],
   providers: [DataService],
