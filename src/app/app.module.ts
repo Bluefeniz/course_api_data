@@ -5,9 +5,12 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { DataService } from './data.service';
-import { MatButtonModule } from '@angular/material/button';
+import { MatButtonModule} from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
@@ -24,8 +27,10 @@ import { MatButtonModule } from '@angular/material/button';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    MatButtonModule
-
+    MatButtonModule,
+    MatCardModule,
+    MatInputModule,
+    MatCheckboxModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

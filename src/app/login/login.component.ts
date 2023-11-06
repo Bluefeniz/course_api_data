@@ -4,6 +4,7 @@ import { FormGroup, FormBuilder } from '@angular/forms';
 
 
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -14,6 +15,9 @@ export class LoginComponent implements OnInit{
   checkoutForm: FormGroup;
 
   data = this.dataService.getUser("");
+  errorMessage: any;
+isLoginFailed: any;
+form: any;
 
   constructor(private dataService: DataService, private formBuilder: FormBuilder) {
     this.checkoutForm = this.formBuilder.group({
@@ -40,24 +44,7 @@ export class LoginComponent implements OnInit{
     const password = this.checkoutForm.get('password')?.value;
     console.log("FORM PASSWORD: " +  password);
 
-    // this.dataService.getUser(password).subscribe(
-    //   (userData) => {
-    //     console.log('Dati utente:', userData);
-    //   },
-    //   (error) => {
-    //     console.error('Errore durante la richiesta:', error);
-    //   }
-    // );
-
   }
-
-  //   const myLoginObservable = new Observable(observer => {
-  //     observer.next(userName);
-  //     observer.next(password);
-  //     observer.complete();
-  //   });
-  //   return myLoginObservable;
-  //  };
   
   ngOnInit(): void {
     console.log("loginOnInit");
