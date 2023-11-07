@@ -36,7 +36,7 @@
 
           
           <div class="text-center">
-              <mat-card-title  class="titleAuth">Eccoqua</mat-card-title>
+              <mat-card-title *ngIf="!loginForm.valid && loginForm.get('password')?.touched" class="titleAuth">Inserisci la password per accedere</mat-card-title>
               <img src="/assets/Caetani_Ninfa-1dinho-removebg-preview.png" class="app-logo" alt="logo" />
           </div>
 

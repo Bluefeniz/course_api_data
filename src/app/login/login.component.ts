@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { FormGroup, FormBuilder, FormControl, Form, Validators } from '@angular/forms';
+import { NonNullAssert } from '@angular/compiler';
 
 
 
@@ -14,26 +15,29 @@ import { FormGroup, FormBuilder, FormControl, Form, Validators } from '@angular/
 
 export class LoginComponent implements OnInit{
 
-  
+  data = this.dataService.getUser("");
   loginForm!: FormGroup;
   errorMessage: any;
   isLoginFailed: any;
 
-  constructor() {}
+  constructor(private dataService: DataService) {}
 
   
   ngOnInit(): void {
     console.log("loginOnInit");
-    this.loginForm = new FormGroup({
-      username: new FormControl('flaviofrancardi@libero.it', Validators.required), //, Validators.email]),
-      password: new FormControl('ciucci', Validators.required)
+    this.loginForm = new FormGroup({ //crea controllo sul form username
+      username: new FormControl('flaviofrancardi@libero.it', Validators.required), //, Validators.email]), //assegna i valori iniziali
+      password: new FormControl('', Validators.required)                        //oppure null
     })
   }
       // Qui puoi gestire i dati ricevuti
 
   
   onSubmit() {
-    //const userNameValue = this.formGroup.get('username')?.value;
-    console.log(this.loginForm)
+    var userNameValue = this.loginForm.get('username')?.value; 
+    console.log(userNameValue); // stampa il valore del campo username
+    //console.log(this.loginForm); // stampa tutto il form group
+    console.log(this.data = this.dataService.getUser(userNameValue));
+    
   }
 }  
