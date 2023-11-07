@@ -4,7 +4,7 @@ import { FormGroup, FormBuilder, FormControl, Form, Validators } from '@angular/
 import { NonNullAssert } from '@angular/compiler';
 
 
-
+console.log('wey')
 
 @Component({
   selector: 'app-login',
