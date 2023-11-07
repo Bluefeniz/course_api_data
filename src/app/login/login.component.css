@@ -1,9 +1,11 @@
-div {
+
+
+/* div {
     margin: top;
     display: flex;
-}
+} */
 
-.loginAuthentication{
+/* .loginAuthentication{
     height: auto;
     margin-top: 10px;
     margin-bottom: auto;
@@ -11,8 +13,23 @@ div {
     margin-right: auto;
     text-align: right;
     color: red;
-}
+} */
 
+
+.titleAuth {
+    margin-left: 200px;
+    padding-top: 0px;
+    font-size: 20px;
+    }
+
+.headAuth{
+    font-size: 25px;
+    background-color: aquamarine;
+    align-self: auto!important;
+    align-content: center!important;
+    text-align: center!important;
+    padding-left: 46%;
+}
 
 
 
