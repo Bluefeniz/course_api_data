@@ -14,9 +14,9 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
-  getUser(userName: string): Observable<any> {
+  postAuthentication(name: string, password: string ): Observable<any> {
     //console.log(this.http.get(`${this.baseUrl}/user/${userName}`));
-    return this.http.get(`${this.baseUrl}/user/${userName}`)
+    return this.http.post(`${this.baseUrl}/user/authenticate`,{"name":name, "password":password})
   }
 
 

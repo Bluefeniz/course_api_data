@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { FormGroup, FormBuilder, FormControl, Form, Validators } from '@angular/forms';
-import { NonNullAssert } from '@angular/compiler';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable, interval } from 'rxjs';
 
 
-console.log('wey')
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,6 @@ console.log('wey')
 
 export class LoginComponent implements OnInit{
 
-  data = this.dataService.getUser("");
   loginForm!: FormGroup;
   errorMessage: any;
   isLoginFailed: any;
@@ -35,9 +33,13 @@ export class LoginComponent implements OnInit{
   
   onSubmit() {
     var userNameValue = this.loginForm.get('username')?.value; 
+    var password = this.loginForm.get('password')?.value;
     console.log(userNameValue); // stampa il valore del campo username
     //console.log(this.loginForm); // stampa tutto il form group
-    console.log(this.data = this.dataService.getUser(userNameValue));
+    this.dataService.postAuthentication(userNameValue, password).subscribe(anyValue => {
+      console.log(anyValue);
+    });
+    
     
   }
 }  
